@@ -12,7 +12,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-       binding = DataBindingUtil.setContentView(this,R.layout.activity_main)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
         //Veri Hazırlığı
 
@@ -23,27 +23,24 @@ class MainActivity : AppCompatActivity() {
         superKahramanIsimleri.add("Aquaman")
         superKahramanIsimleri.add("Spiderman")
 
-        //Verimsiz Tanımlamalar
+        val batmanDrawableId = R.drawable.batman
+        val supermanDrawableId = R.drawable.superman
+        val ironmanDrawableId = R.drawable.ironman
+        val aquamanDrawableId = R.drawable.aquaman
+        val spidermanDrawableId = R.drawable.spiderman
 
-        val batmanBitmap = BitmapFactory.decodeResource(applicationContext.resources,R.drawable.batman)
-        val supermanBitmap = BitmapFactory.decodeResource(applicationContext.resources,R.drawable.superman)
-        val ironmanBitmap = BitmapFactory.decodeResource(applicationContext.resources,R.drawable.ironman)
-        val aquamanBitmap = BitmapFactory.decodeResource(applicationContext.resources,R.drawable.aquaman)
-        val spidermanBitmap = BitmapFactory.decodeResource(applicationContext.resources,R.drawable.spiderman)
-
-        var superKahramanGorselleri = ArrayList<Bitmap>()
-        superKahramanGorselleri.add(batmanBitmap)
-        superKahramanGorselleri.add(supermanBitmap)
-        superKahramanGorselleri.add(ironmanBitmap)
-        superKahramanGorselleri.add(aquamanBitmap)
-        superKahramanGorselleri.add(spidermanBitmap)
-
+        var superKahramanDrawableListesi = ArrayList<Int>()
+        superKahramanDrawableListesi.add(batmanDrawableId)
+        superKahramanDrawableListesi.add(supermanDrawableId)
+        superKahramanDrawableListesi.add(ironmanDrawableId)
+        superKahramanDrawableListesi.add(aquamanDrawableId)
+        superKahramanDrawableListesi.add(spidermanDrawableId)
 
         //Adapter
         val layoutManager = LinearLayoutManager(this)
         binding.recyclerView.layoutManager = layoutManager
 
-        val adapter = RecyclerAdapter(superKahramanIsimleri, superKahramanGorselleri)
+        val adapter = RecyclerAdapter(superKahramanIsimleri, superKahramanDrawableListesi)
         binding.recyclerView.adapter = adapter
     }
 }
